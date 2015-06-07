@@ -1,6 +1,6 @@
 {
   "name": "sffc-encoder",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Encode/decode numbers to and from SFFC encoding format",
   "main": "sffcEncoder.js",
   "directories": {
@@ -19,7 +19,7 @@
   "keywords": ["buffer", "reader", "consumer"],
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/thehobbit85/SFFC.git"
+    "url" : "https://github.com/Colored-Coins/SFFC.git"
   }
 }
 

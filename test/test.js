@@ -27,6 +27,11 @@ var consumer = function (buff) {
   }
 }
 
+var codeBuffer = new Buffer([0x82,0x76,0x0e,0x1b,0x48])
+var consume = consumer(codeBuffer)
+
+console.log(balz.decode(consume)) // Will print: 1321321321
+
 // console.log(balz.decode(consumer(new Buffer('e0ffffffffffff', 'hex'))))
 
 describe('BALZ Encoding', function () {

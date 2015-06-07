@@ -1,4 +1,5 @@
-# sffc-encoder [![Build Status](https://travis-ci.org/thehobbit85/SFFC.svg?branch=master)](https://travis-ci.org/thehobbit85/SFFC)
+# sffc-encoder
+[![Build Status](https://travis-ci.org/thehobbit85/SFFC.svg?branch=master)](https://travis-ci.org/thehobbit85/SFFC) [![Coverage Status](https://coveralls.io/repos/thehobbit85/SFFC/badge.svg?branch=master)](https://coveralls.io/r/thehobbit85/SFFC?branch=master) [![npm version](https://badge.fury.io/js/sffc-encoder.svg)](http://badge.fury.io/js/sffc-encoder)
 
 sffc-encoder provides the encode/decode functions to and from SFFC (Significant Figures First Code) format.
 

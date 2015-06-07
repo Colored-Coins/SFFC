@@ -8,6 +8,9 @@ var samples = [
   1323004030000,
   32300400400,
   2300400002,
+  100000000000,
+  100001000000,
+  110000000010000,
   1768474864449384,
   7684748644493848,
   11111111111111111,
@@ -27,19 +30,12 @@ var consumer = function (buff) {
   }
 }
 
-var codeBuffer = new Buffer([0x82,0x76,0x0e,0x1b,0x48])
-var consume = consumer(codeBuffer)
-
-console.log(balz.decode(consume)) // Will print: 1321321321
-
-// console.log(balz.decode(consumer(new Buffer('e0ffffffffffff', 'hex'))))
-
-describe('BALZ Encoding', function () {
-  it('should return the right encoding for numbers 1-31', function (done) {
+describe('One byte encoding', function () {
+  it('should return the right encoding for numbers 0-31', function (done) {
     this.timeout(0)
     var labz_code
 
-    for (var i = 1; i < 32; i++) {
+    for (var i = 0; i < 32; i++) {
       labz_code = balz.encode(i)
       var buf = new Buffer(1)
       buf.writeUInt8(i)
@@ -49,27 +45,18 @@ describe('BALZ Encoding', function () {
 
     done()
   })
-
-  it('should return errors', function (done) {
-    assert.throws(function () {
-      balz.encode(0) === null
-    }, 'Can\'t Encode Zero',
-    'Should have returned null')
-    done()
-  })
-
 })
 
 describe('Encode/Decode', function (done) {
-  it('should return the right decoding for a range run', function (done) {
+  it('should decode encoded numbers correctly for all numbers between 0 to ' + fullRunLength, function (done) {
     this.timeout(0)
-    for (var i = 1; i < fullRunLength; i++) {
+    for (var i = 0; i < fullRunLength; i++) {
       var labz_code = balz.encode(i)
       assert.equal(balz.decode(consumer(labz_code)), i, 'Wrong encode/decode fullRunLength')
     }
     done()
   })
-  it('should return the right decoding for sample run', function (done) {
+  it('should decode encoded numbers correctly for sample run', function (done) {
     this.timeout(0)
     for (var i = 0; i < samples.length; i++) {
       var labz_code = balz.encode(samples[i])
@@ -77,12 +64,27 @@ describe('Encode/Decode', function (done) {
     }
     done()
   })
-  it('should return the right decoding for a random range run', function (done) {
+  it('should decode encoded numbers correctly for ' + fullRunLength + ' random numbers in the allowed range', function (done) {
     this.timeout(0)
     for (var i = 0; i < fullRunLength; i++) {
       var number = Math.floor(Math.random() * maxNumber) + 1
       var labz_code = balz.encode(number)
       assert.equal(balz.decode(consumer(labz_code)), number, 'Wrong encode/decode random')
+    }
+    done()
+  })
+})
+
+describe('Should return errors', function (done) {
+  it('Should throw errors', function (done) {
+    this.timeout(0)
+    samples = [90071992547412996, 90071992547409923, 1000000000000000000000, -132, -1231]
+    for (var i = 0; i < samples.length; i++) {
+      assert.throws(function () {
+        balz.encode(samples[i])
+      }
+      , 'Number is out of bounds'
+      , 'Number is out of bounds')
     }
     done()
   })

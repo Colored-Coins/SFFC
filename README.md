@@ -1,20 +1,20 @@
 # sffc-encoder
 
-sffc-encoder is provides the encode/decode functions to and from SFFC (Significant Figures First Code) format.
+sffc-encoder provides the encode/decode functions to and from SFFC (Significant Figures First Code) format.
 
-SFFC format is a Integer to binary encoding format with a changing byte size (full bytes) based on the number of significant digits in base 10 are needed to represent the Integer.
-This format benifits the more "rounded" (Higher powers of 10) Integer with a lower byte size encoding.
+SFFC format is an Integer to binary encoding format with a changing byte size (full bytes) based on the number of significant digits in base 10 that are needed to represent the Integer.
+This format benefits the more "rounded" (Higher powers of 10) Integer with a lower byte size encoding.
 
 The decoding Scheme:
 
-- First 2/3 bits are length flag:
+- First 2 or 3 bits are length flag:
  1. If first 2 bits are 1 then the flag is 2 bits.
  2. Else the flag is the first 3 bits.
 - Remove the flag bits and concat the rest with the next extra amount of bytes using the conversion table (appendix A).
 - Split the bits to mantis and exponent to their respective bits using table 1.
-- Multiple the mantis by  10^exponent in base 10 to get the encoded Integer.
+- Multiply the mantis by 10^exponent in base 10 to get the encoded Integer.
 
-There are also some encoding optimizition, for example, even though 23 has 2 significant figures we can still encode it using 3 flag bits and 5 binary bits in only 1 byte so thats what we do by using the zero extra byte flag to encode 23 in 1 byte.
+There is also some encoding optimization, for example, even though 23 has 2 significant figures we can still encode it using 3 flag bits and 5 binary bits in only 1 byte.
 
 ### Installation
 

@@ -1,13 +1,15 @@
 {
   "name": "sffc-encoder",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Encode/decode numbers to and from SFFC encoding format",
   "main": "sffcEncoder.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "istanbul cover _mocha -- -R spec",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "author": {
     "name" : "thehobbit85",

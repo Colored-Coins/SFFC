@@ -1,4 +1,4 @@
-# sffc-encoder
+# sffc-encoder [![Build Status](https://travis-ci.org/thehobbit85/SFFC.svg?branch=master)](https://travis-ci.org/thehobbit85/SFFC)
 
 sffc-encoder provides the encode/decode functions to and from SFFC (Significant Figures First Code) format.
 

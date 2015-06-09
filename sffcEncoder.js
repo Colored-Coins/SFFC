@@ -70,9 +70,9 @@ var padLeadingZeros = function (hex, byteSize) {
 module.exports = {
   encode: function (number) {
     var buf
+    if (number < 0) throw new Error('Number is out of bounds')
     if (number < 32) {
-      buf = new Buffer(1)
-      buf.writeUInt8(number)
+      buf = new Buffer([number])
       return buf
     }
     var floatingNumberArray = intToFloatArray(number)

@@ -3,6 +3,10 @@ var assert = require('assert')
 var fullRunLength = 1000000
 var maxNumber = 9007199254740992
 var samples = [
+  1,
+  1200032,
+  1232,
+  1002000000,
   928867423145164,
   132300400000,
   1323004030000,
@@ -13,9 +17,9 @@ var samples = [
   110000000010000,
   1768474864449384,
   7684748644493848,
-  11111111111111111,
-  12222222222222222,
-  13333333333333333,
+  1111111111111111,
+  1222222222222222,
+  1333333333333333,
   3333333333232323,
   2343241324231432,
   9007199254740991,
@@ -37,8 +41,7 @@ describe('One byte encoding', function () {
 
     for (var i = 0; i < 32; i++) {
       labz_code = balz.encode(i)
-      var buf = new Buffer(1)
-      buf.writeUInt8(i)
+      var buf = new Buffer([i])
       assert(labz_code.length === 1, 'Wrong encoding length')
       assert(labz_code.toString('hex') === buf.toString('hex'), 'Wrong encoding')
     }

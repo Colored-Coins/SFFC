@@ -42,10 +42,9 @@ describe('One byte encoding', function () {
     for (var i = 0; i < 32; i++) {
       labz_code = balz.encode(i)
       var buf = new Buffer([i])
-      assert(labz_code.length === 1, 'Wrong encoding length')
-      assert(labz_code.toString('hex') === buf.toString('hex'), 'Wrong encoding')
+      assert.equal(labz_code.length, 1, 'Wrong encoding length')
+      assert.equal(labz_code.toString('hex'), buf.toString('hex'), 'Wrong encoding')
     }
-
     done()
   })
 })
@@ -87,7 +86,7 @@ describe('Should return errors', function (done) {
         balz.encode(samples[i])
       }
       , 'Number is out of bounds'
-      , 'Number is out of bounds')
+      , 'Out of bound number should throw new error')
     }
     done()
   })

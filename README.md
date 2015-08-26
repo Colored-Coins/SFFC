@@ -1,5 +1,5 @@
 # sffc-encoder
-[![Build Status](https://travis-ci.org/Colored-Coins/SFFC.svg?branch=master)](https://travis-ci.org/Colored-Coins/SFFC) [![Coverage Status](https://coveralls.io/repos/Colored-Coins/SFFC/badge.svg?branch=master)](https://coveralls.io/r/Colored-Coins/SFFC?branch=master) [![npm version](https://badge.fury.io/js/sffc-encoder.svg)](http://badge.fury.io/js/sffc-encoder)
+[![Build Status](https://travis-ci.org/Colored-Coins/SFFC.svg?branch=master)](https://travis-ci.org/Colored-Coins/SFFC) [![Coverage Status](https://coveralls.io/repos/Colored-Coins/SFFC/badge.svg?branch=master)](https://coveralls.io/r/Colored-Coins/SFFC?branch=master) [![npm version](https://badge.fury.io/js/sffc-encoder.svg)](http://badge.fury.io/js/sffc-encoder) [![npm version](http://slack.coloredcoins.org/badge.svg)](http://slack.coloredcoins.org)
 
 sffc-encoder provides the encode/decode functions to and from SFFC (Significant Figures First Code) format.
 

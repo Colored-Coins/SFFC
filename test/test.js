@@ -1,4 +1,5 @@
 var balz = require(__dirname + '/../sffcEncoder')
+balz.encode = require(__dirname + '/../encoder').encode
 var assert = require('assert')
 var fullRunLength = 1000000
 var maxNumber = 9007199254740992

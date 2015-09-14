@@ -23,8 +23,8 @@ var samples = [
   3333333333232323,
   2343241324231432,
   9007199254740991,
-  9007199254740992,
-  4823750656226800
+  4823750656226800,
+  9007199254740992
 ]
 
 var consumer = function (buff) {
@@ -38,7 +38,6 @@ describe('One byte encoding', function () {
   it('should return the right encoding for numbers 0-31', function (done) {
     this.timeout(0)
     var labz_code
-
     for (var i = 0; i < 32; i++) {
       labz_code = balz.encode(i)
       var buf = new Buffer([i])

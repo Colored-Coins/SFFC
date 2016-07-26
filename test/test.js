@@ -79,7 +79,7 @@ describe('Encode/Decode', function (done) {
 describe('Should return errors', function (done) {
   it('Should throw errors', function (done) {
     this.timeout(0)
-    samples = [90071992547412996, 1000000000000000000000, -132, -1231]
+    samples = [90071992547412996, -132, -1231]
     for (var i = 0; i < samples.length; i++) {
       assert.throws(function () {
         balz.encode(samples[i])

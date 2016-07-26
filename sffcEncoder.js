@@ -79,7 +79,7 @@ module.exports = {
     while (true) {
       var encodingObject = mantisLookup[floatingNumberArray[0].toString(2).length]
       if (!encodingObject) throw new Error('Number is out of bounds')
-      if (encodingObject.exponent >= floatingNumberArray[1]) break
+      if ((Math.pow(2, encodingObject.exponent) - 1) >= floatingNumberArray[1]) break
       floatingNumberArray[0] *= 10
       floatingNumberArray[1] -= 1
     }

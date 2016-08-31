@@ -71,6 +71,7 @@ module.exports = {
   encode: function (number) {
     var buf
     if (number < 0) throw new Error('Number is out of bounds')
+    if (number > Number.MAX_SAFE_INTEGER) throw new Error('Number is out of bounds')
     if (number < 32) {
       buf = new Buffer([number])
       return buf

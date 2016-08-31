@@ -28,7 +28,7 @@ $ npm install sffc-encoder
 
 ### Encode
 Params:
-- number - takes any integer between 0 to 9007199254740992
+- number - takes any integer between 0 to 9007199254740991 (`Number.MAX_SAFE_INTEGER`)
 
 Returns a new Buffer holding the encoded Integer
 

@@ -1,7 +1,7 @@
 var balz = require(__dirname + '/../sffcEncoder')
 var assert = require('assert')
 var fullRunLength = 1000000
-var maxNumber = 9007199254740992
+var maxNumber = 9007199254740991
 var samples = [
   1,
   1200032,
@@ -23,8 +23,7 @@ var samples = [
   3333333333232323,
   2343241324231432,
   9007199254740991,
-  4823750656226800,
-  9007199254740992
+  4823750656226800
 ]
 
 var consumer = function (buff) {
@@ -79,7 +78,7 @@ describe('Encode/Decode', function (done) {
 describe('Should return errors', function (done) {
   it('Should throw errors', function (done) {
     this.timeout(0)
-    samples = [90071992547412996, -132, -1231]
+    samples = [9007199254740992, 10000000000000000000, -132, -1231]
     for (var i = 0; i < samples.length; i++) {
       assert.throws(function () {
         balz.encode(samples[i])

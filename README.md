@@ -80,7 +80,7 @@ $ mocha
 License
 ----
 
-MIT
+[Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 
 [mocha]:https://www.npmjs.com/package/mocha
